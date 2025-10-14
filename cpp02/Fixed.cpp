@@ -30,6 +30,12 @@ int	Fixed::getRawBits(void) const
 	return (this->_fixedPointValue);
 }
 
+void Fixed::setRawBits(int const raw)
+{
+	std::cout << "setRawBits member function called" << std::endl;
+	this->_fixedPointValue = raw;
+}
+
 Fixed::~Fixed(void) 
 {
 	std::cout << "Destructor called" << std::endl;
