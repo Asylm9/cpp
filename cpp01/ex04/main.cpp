@@ -6,7 +6,7 @@
 /*   By: agaland <agaland@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:14:19 by agaland           #+#    #+#             */
-/*   Updated: 2025/10/19 22:13:23 by agaland          ###   ########.fr       */
+/*   Updated: 2025/10/19 22:46:04 by agaland          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ bool	replaceFind(std::ifstream& File, std::string& search, std::string& replace,
 	
 	while (std::getline(File, buff))
 	{
-		while ((foundPos = buff.find(search)) != std::string::npos)
+		foundPos = 0;
+		while ((foundPos = buff.find(search, foundPos)) != std::string::npos)
 		{
 				found = true;
 				buff.erase(foundPos, search.length());
 				buff.insert(foundPos, replace);
+				foundPos += replace.length();
 		}
 		result += buff;
 		result += "\n";
