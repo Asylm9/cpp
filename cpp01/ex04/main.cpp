@@ -6,7 +6,7 @@
 /*   By: agaland <agaland@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:14:19 by agaland           #+#    #+#             */
-/*   Updated: 2025/09/03 00:46:40 by agaland          ###   ########.fr       */
+/*   Updated: 2025/10/19 22:13:23 by agaland          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 bool	replaceFind(std::ifstream& File, std::string& search, std::string& replace, std::string& result)
 {
-	std::string buff, result;
+	std::string buff;
 	size_t		foundPos;
 	bool		found = false;
 	
