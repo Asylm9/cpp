@@ -6,7 +6,7 @@
 /*   By: agaland <agaland@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:14:47 by agaland           #+#    #+#             */
-/*   Updated: 2025/09/02 16:14:50 by agaland          ###   ########.fr       */
+/*   Updated: 2025/10/20 14:48:48 by agaland          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	main(void)
 	
 	Harl harl;
 
-    harl.complain("debug");
-
-    harl.complain("info");
+    harl.complain("DEBUG");
+	
+    harl.complain("INFO");
     
-	harl.complain("warning");
+	harl.complain("WARNING");
     
-	harl.complain("error");
+	harl.complain("ERROR");
     
 	harl.complain("invalid");
 
