@@ -6,7 +6,7 @@
 /*   By: agaland <agaland@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:14:19 by agaland           #+#    #+#             */
-/*   Updated: 2025/10/19 22:46:04 by agaland          ###   ########.fr       */
+/*   Updated: 2025/10/24 00:31:49 by agaland          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@ bool	openReadFile(std::ifstream& File, std::string& filename)
 	return true;
 }
 
-bool	openWriteFile(std::string& result)
+bool	openWriteFile(std::string& result, std::string& filename)
 {
-	std::ofstream OutFile("outfile.replace");
+	std::string outfileName = filename + ".replace";
+	std::ofstream OutFile(outfileName.c_str());
 	if (!OutFile)
 	{
 		std::cout << "Error: access was denied" << std::endl;
@@ -103,7 +104,7 @@ int	main(int ac, char **av)
 		if (!replaceFind(File1, s1, s2, result))
 			return 1;
 
-		if (!openWriteFile(result))
+		if (!openWriteFile(result, filename))
 			return 1;
 	}
 	else
