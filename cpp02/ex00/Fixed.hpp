@@ -13,7 +13,7 @@ class Fixed
 	public :
 
 	Fixed(void);
-	Fixed(Fixed& object);
+	Fixed(Fixed const& object);
 
 	~Fixed(void);
 

@@ -5,7 +5,7 @@ Fixed::Fixed(void) : _fixedPointValue(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed& object)
+Fixed::Fixed(Fixed const& object)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	this->_fixedPointValue = object.getRawBits();
