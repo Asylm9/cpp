@@ -1,25 +1,23 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed(void) : _fixedPointValue(0) 
+Fixed::Fixed() : _fixedPointValue(0) 
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed const& object)
+Fixed::Fixed(Fixed const& object) : _fixedPointValue(object.getRawBits())
 {
+	//good practice: utiliser liste d'initioalisation et non operateur d'assignation lorsque object est en train d'etre cree
 	std::cout << "Copy constructor called" << std::endl;
-	this->_fixedPointValue = object.getRawBits();
-//fractBits: Identique pour tous. Quand un membre est static, il n’appartient pas a une instance 'this' mais a la classe elle-meme.
-//Et quand il est en plus const, sa valeur est fixee une fois pour toutes à la compilation.
-//si fractBits n'etait pas static, chaque objet aurait sa propre copie de fractBits (alors que sont contenu serait identique)
-//fractBits n’appartient plus à l’objet, mais a la classe entiere.
 }
 
 Fixed&  Fixed::operator=(Fixed const& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fixedPointValue = rhs.getRawBits();
-	return(*this);
+	//& car this est un pointeur vers l'instance courante et rhs un reference de le l'objet a copier
+	if (this != &rhs)
+		this->_fixedPointValue = rhs.getRawBits();
+	return (*this); //renvoyer une reference vers l'instance <3
 }
 
 int	Fixed::getRawBits(void) const
@@ -34,7 +32,7 @@ void Fixed::setRawBits(int const raw)
 	this->_fixedPointValue = raw;
 }
 
-Fixed::~Fixed(void) 
+Fixed::~Fixed() 
 {
 	std::cout << "Destructor called" << std::endl;
 }

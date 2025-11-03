@@ -8,27 +8,26 @@ class Fixed
 	private:
 
 	int	_fixedPointValue;
-	static const int _fractBits;
+	static const int _fractBits = 8;
 
 	public :
 
-	Fixed(void);
+	Fixed();
 	Fixed(const int n);
 	Fixed(const float f);
-	Fixed(Fixed& object);
+	Fixed(Fixed const& object);
 
-	~Fixed(void);
+	~Fixed();
 
 	Fixed&  operator=(Fixed const& rhs);
 
-	int	getRawBits(void) const;
+	int	getRawBits() const;
 	void setRawBits(int const raw);
 
-	float toFloat( void ) const;
-	int toInt( void ) const;
+	float toFloat(void) const;
+	int toInt(void) const;
 
 	
 };
-
 
 #endif
