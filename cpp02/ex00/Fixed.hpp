@@ -8,7 +8,7 @@ class Fixed
 	private:
 
 	int	_fixedPointValue;
-	static const int _fractBits; //appartient a la classe et non a l'objet (commun a tous les objets)
+	//static const int _fractBits; //appartient a la classe et non a l'objet (commun a tous les objets)
 
 	public :
 
