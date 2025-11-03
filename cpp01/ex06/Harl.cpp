@@ -6,7 +6,7 @@
 /*   By: agaland <agaland@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:15:46 by agaland           #+#    #+#             */
-/*   Updated: 2025/09/03 02:00:27 by agaland          ###   ########.fr       */
+/*   Updated: 2025/11/03 13:52:19 by agaland          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,10 @@
 		{
 			case 0:
 				debug();
-			/* fall through */
 			case 1:
 				info();
-			/* fall through */
 			case 2:
 				warning();
-			/* fall through */
 			case 3:
 				error();
 				break;
