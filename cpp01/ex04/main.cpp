@@ -6,7 +6,7 @@
 /*   By: agaland <agaland@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:14:19 by agaland           #+#    #+#             */
-/*   Updated: 2025/10/24 00:31:49 by agaland          ###   ########.fr       */
+/*   Updated: 2025/11/09 19:22:00 by agaland          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include <fstream>
 #include <string>
 
-bool	replaceFind(std::ifstream& File, std::string& search, std::string& replace, std::string& result)
+bool	replaceFind(std::ifstream& file, std::string& search, std::string& replace, std::string& result)
 {
 	std::string buff;
 	size_t		foundPos;
 	bool		found = false;
 	
-	while (std::getline(File, buff))
+	while (std::getline(file, buff))
 	{
 		foundPos = 0;
 		while ((foundPos = buff.find(search, foundPos)) != std::string::npos)
@@ -33,9 +33,7 @@ bool	replaceFind(std::ifstream& File, std::string& search, std::string& replace,
 		result += buff;
 		result += "\n";
 	}
-	
-	File.close();
-		
+			
 	if (!found)
 	{
 		std::cout << "No occurrences were found." << std::endl;
@@ -65,15 +63,15 @@ bool	openReadFile(std::ifstream& File, std::string& filename)
 bool	openWriteFile(std::string& result, std::string& filename)
 {
 	std::string outfileName = filename + ".replace";
-	std::ofstream OutFile(outfileName.c_str());
-	if (!OutFile)
+	std::ofstream outFile(outfileName.c_str());
+	if (!outFile)
 	{
 		std::cout << "Error: access was denied" << std::endl;
 		return false;
 	}
 	
-	OutFile << result;
-	OutFile.close();
+	outFile << result;
+	
 	std::cout << "All [s1] occurrences successfully replaced." << std::endl;
 	
 	return true;
@@ -94,14 +92,14 @@ int	main(int ac, char **av)
 
 	if (!filename.empty() && !s1.empty())
 	{
-		std::ifstream File1;
+		std::ifstream inputFile;
 	
-		if (!openReadFile(File1, filename))
+		if (!openReadFile(inputFile, filename))
 			return 1;
 		
 		std::string	result;
 		
-		if (!replaceFind(File1, s1, s2, result))
+		if (!replaceFind(inputFile, s1, s2, result))
 			return 1;
 
 		if (!openWriteFile(result, filename))
