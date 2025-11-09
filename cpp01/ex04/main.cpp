@@ -6,7 +6,7 @@
 /*   By: agaland <agaland@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:14:19 by agaland           #+#    #+#             */
-/*   Updated: 2025/11/09 19:22:00 by agaland          ###   ########.fr       */
+/*   Updated: 2025/11/10 00:53:23 by agaland          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <fstream>
 #include <string>
 
-bool	replaceFind(std::ifstream& file, std::string& search, std::string& replace, std::string& result)
+bool	replaceFind(std::ifstream& file, std::string const& search, std::string const& replace, std::string& result)
 {
 	std::string buff;
 	size_t		foundPos;
@@ -36,25 +36,25 @@ bool	replaceFind(std::ifstream& file, std::string& search, std::string& replace,
 			
 	if (!found)
 	{
-		std::cout << "No occurrences were found." << std::endl;
+		std::cerr << "No occurrences were found." << std::endl;
 		return false;
 	}
 	return true;
 }
 
-bool	openReadFile(std::ifstream& File, std::string& filename)
+bool	openReadFile(std::ifstream& file, std::string& filename)
 {
-	File.open(filename.c_str());
+	file.open(filename.c_str());
 	
-	if (!File)
+	if (!file)
 	{
-		std::cout << "Error: file doesn't exist or access was denied" << std::endl;
+		std::cerr << "Error: cannot open input file '" << filename << "'" << std::endl;
 		return false;
 	}
 	
-	if (File.peek() == std::ifstream::traits_type::eof())
+	if (file.peek() == std::ifstream::traits_type::eof())
 	{
-		std::cout << "File is empty" << std::endl;
+		std::cerr << "File is empty" << std::endl;
 		return false;
 	}
 	return true;
@@ -66,23 +66,23 @@ bool	openWriteFile(std::string& result, std::string& filename)
 	std::ofstream outFile(outfileName.c_str());
 	if (!outFile)
 	{
-		std::cout << "Error: access was denied" << std::endl;
+		std::cerr << "Error: cannot open output file '" << outfileName << "'" << std::endl;
 		return false;
 	}
 	
 	outFile << result;
 	
-	std::cout << "All [s1] occurrences successfully replaced." << std::endl;
+	std::cerr << "All [s1] occurrences successfully replaced." << std::endl;
 	
 	return true;
 }
 
 int	main(int ac, char **av)
 {
-	std::cout << "----------EX04---------" << std::endl;
+	std::cerr << "----------EX04---------" << std::endl;
 	if (ac != 4)
 	{
-		std::cout << "this program requires 3 parameters: <filename> <s1> <s2>" << std::endl;
+		std::cerr << "this program requires 3 parameters: <filename> <s1> <s2>" << std::endl;
 		return 1;
 	}
 	
@@ -107,7 +107,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		std::cout << "<filename> and/or <s1> parameter(s) shouldn't be empty" << std::endl;
+		std::cerr << "<filename> and/or <s1> parameter(s) shouldn't be empty" << std::endl;
 		return 1;
 	}
 	return 0;
