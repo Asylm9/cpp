@@ -10,15 +10,18 @@ Fixed::Fixed(Fixed const& object) : _fixedPointValue(object._fixedPointValue)
 	std::cout << "Copy constructor called" << std::endl;
 }
 
+
 Fixed::Fixed(const int n) : _fixedPointValue(n << _fractBits)
 {
 	std::cout << "INT to FixedPoint constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float f) : _fixedPointValue((int)roundf(f * (1 << _fractBits))) // 1 << 2^n = 2 ^ 8 = 256
+//on ne peut pas utiliser les operateurs bitwise directement sur un float! Erreur de compilation
+Fixed::Fixed(const float f) : _fixedPointValue(roundf(f * (1 << _fractBits)))
 {
 	std::cout << "FLOAT to FixedPoint constructor called" << std::endl;
 }
+
 
 Fixed&  Fixed::operator=(Fixed const& rhs)
 {
@@ -27,6 +30,7 @@ Fixed&  Fixed::operator=(Fixed const& rhs)
 		_fixedPointValue = rhs._fixedPointValue;
 	return (*this); 
 }
+
 
 int	Fixed::getRawBits(void) const
 {
@@ -40,26 +44,29 @@ void Fixed::setRawBits(int const raw)
 	_fixedPointValue = raw;
 }
 
+
 float Fixed::toFloat(void) const
 {
-	return ((float)_fixedPointValue / (1 << _fractBits));
+	return (static_cast<float>(_fixedPointValue) / (1 << _fractBits));
 }
 
 int Fixed::toInt(void) const
 {
+	//divise directemt fixedPointValue par 256
 	return (_fixedPointValue >> _fractBits);
 }
+
 
 Fixed::~Fixed() 
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
-
 /* Retourne reference vers flux de sortie + permet le chainage d'operations
 */
 std::ostream& operator<<(std::ostream& ostream, Fixed const& object)
 {
 	ostream << object.toFloat();
+	//permet le chainage
 	return (ostream); 
 }
