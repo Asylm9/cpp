@@ -61,36 +61,30 @@ Fixed::~Fixed()
 }
 
 /* overloaded operators */
-
 Fixed  Fixed::operator+(Fixed const& rhs) const
 {
-	Fixed result;
-	result._fixedPointValue =  this->_fixedPointValue + rhs._fixedPointValue;
-	return (result);
+	return (Fixed(this->_fixedPointValue + rhs._fixedPointValue));
 }
 
 Fixed  Fixed::operator-(Fixed const& rhs) const
 {
-	Fixed result;
-	result._fixedPointValue =  this->_fixedPointValue - rhs._fixedPointValue;
-	return (result);
+	return (Fixed(this->_fixedPointValue - rhs._fixedPointValue));
 }
 
 Fixed  Fixed::operator*(Fixed const& rhs) const
 {
-	Fixed result;
-	result._fixedPointValue = (this->_fixedPointValue * rhs._fixedPointValue) >> _fractBits;
-	return (result);
+	return (Fixed((this->_fixedPointValue * rhs._fixedPointValue) >> _fractBits));
 }
 
 Fixed  Fixed::operator/(Fixed const& rhs) const
 {
-	Fixed result;
 	if (rhs._fixedPointValue != 0)
-		result._fixedPointValue =  (this->_fixedPointValue >> _fractBits) / rhs._fixedPointValue;
-	return (result);
+		return (Fixed(this->_fixedPointValue << _fractBits) / rhs._fixedPointValue);
+	std::cerr << "Error: Division by 0" << std::endl;
+	return (Fixed(0));
 }
 
+/* Non-member function */
 std::ostream& operator<<(std::ostream& ostream, Fixed const& object)
 {
 	ostream << object.toFloat();
