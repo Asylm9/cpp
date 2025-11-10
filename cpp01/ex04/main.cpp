@@ -6,7 +6,7 @@
 /*   By: agaland <agaland@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:14:19 by agaland           #+#    #+#             */
-/*   Updated: 2025/11/10 00:53:23 by agaland          ###   ########.fr       */
+/*   Updated: 2025/11/10 01:24:55 by agaland          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <fstream>
 #include <string>
 
-bool	replaceFind(std::ifstream& file, std::string const& search, std::string const& replace, std::string& result)
+bool	replaceFind(std::ifstream& file, std::string const& search, std::string const& replace, std::ofstream& outFile)
 {
 	std::string buff;
 	size_t		foundPos;
@@ -30,8 +30,7 @@ bool	replaceFind(std::ifstream& file, std::string const& search, std::string con
 				buff.insert(foundPos, replace);
 				foundPos += replace.length();
 		}
-		result += buff;
-		result += "\n";
+		outFile << buff << "\n";
 	}
 			
 	if (!found)
@@ -39,10 +38,11 @@ bool	replaceFind(std::ifstream& file, std::string const& search, std::string con
 		std::cerr << "No occurrences were found." << std::endl;
 		return false;
 	}
+	std::cout << "All [s1] occurrences successfully replaced." << std::endl;
 	return true;
 }
 
-bool	openReadFile(std::ifstream& file, std::string& filename)
+bool	openReadFile(std::ifstream& file, std::string const& filename)
 {
 	file.open(filename.c_str());
 	
@@ -60,26 +60,9 @@ bool	openReadFile(std::ifstream& file, std::string& filename)
 	return true;
 }
 
-bool	openWriteFile(std::string& result, std::string& filename)
-{
-	std::string outfileName = filename + ".replace";
-	std::ofstream outFile(outfileName.c_str());
-	if (!outFile)
-	{
-		std::cerr << "Error: cannot open output file '" << outfileName << "'" << std::endl;
-		return false;
-	}
-	
-	outFile << result;
-	
-	std::cerr << "All [s1] occurrences successfully replaced." << std::endl;
-	
-	return true;
-}
-
 int	main(int ac, char **av)
 {
-	std::cerr << "----------EX04---------" << std::endl;
+	std::cout << "----------EX04---------" << std::endl;
 	if (ac != 4)
 	{
 		std::cerr << "this program requires 3 parameters: <filename> <s1> <s2>" << std::endl;
@@ -90,25 +73,28 @@ int	main(int ac, char **av)
 	std::string s1 = av[2];
 	std::string s2 = av[3];
 
-	if (!filename.empty() && !s1.empty())
-	{
-		std::ifstream inputFile;
-	
-		if (!openReadFile(inputFile, filename))
-			return 1;
-		
-		std::string	result;
-		
-		if (!replaceFind(inputFile, s1, s2, result))
-			return 1;
-
-		if (!openWriteFile(result, filename))
-			return 1;
-	}
-	else
+	if (filename.empty() || s1.empty())
 	{
 		std::cerr << "<filename> and/or <s1> parameter(s) shouldn't be empty" << std::endl;
 		return 1;
 	}
+
+	std::ifstream inputFile;
+
+	if (!openReadFile(inputFile, filename))
+		return 1;
+	
+	std::string outfileName = filename + ".replace";
+	std::ofstream outFile(outfileName.c_str());
+	
+	if (!outFile)
+	{
+		std::cerr << "Error: cannot open output file '" << outfileName << "'" << std::endl;
+		return 1;
+	}
+	
+	if (!replaceFind(inputFile, s1, s2, outFile))
+		return 1;
+
 	return 0;
 }
