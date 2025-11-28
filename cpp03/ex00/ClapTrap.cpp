@@ -42,25 +42,27 @@ void ClapTrap::attack(const std::string& target)
 			std::cout << "{ClapTrap "<< _name << " has not enough energy to attack}" << std::endl;
 		return ;
 	}
-	_attackDamage++;
 	_energyPoints--;
-	std::cout << "{ClapTrap " << _name << " attacks " << target << " causing him 1 point of damage}" << std::endl;
-	if (_attackDamage == 10)
-		std::cout << "{ClapTrap " << target << " is DEAD}" << std::endl;
+	std::cout << "{ClapTrap " << _name << " attacks " << target << " causing him " << _attackDamage << " points of damage}" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	_hitPoints = _hitPoints - amount;
-	std::cout << "{ClapTrap "<< _name << " took " << amount << " point of damage" << std::endl;
-	std::cout << "He have " << _hitPoints << " health points left}" << std::endl;
-
+	if (amount >= _hitPoints) {
+		_hitPoints = 0;
+		std::cout << "{ClapTrap " << _name << " is DEAD}" << std::endl;
+	}
+	else {
+	_hitPoints -= amount;
+	std::cout << "{ClapTrap "<< _name << " took " << amount
+			<< " point of damage (" << _hitPoints << " HP left)}" << std::endl;
+	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	_hitPoints =_hitPoints + amount;
-	_energyPoints = _energyPoints - amount;
+	_hitPoints += amount;
+	_energyPoints -= 1;
 	std::cout << "{ClapTrap "<< _name << " gave 1 energy point to regenerate himself" << std::endl;
 	std::cout << "He now have " << _hitPoints << " health points left}" << std::endl;
 
