@@ -14,9 +14,10 @@ class Fixed
 	public :
 
 	Fixed();
+	Fixed(Fixed const& object);
+
 	Fixed(const int n);
 	Fixed(const float f);
-	Fixed(Fixed const& object);
 
 	~Fixed();
 
@@ -36,10 +37,17 @@ class Fixed
 	bool  operator>=(Fixed const& rhs) const;
 	bool  operator<=(Fixed const& rhs) const;
 
+	/*increment/decrement operators */
 	Fixed&  operator++(); //pre
 	Fixed  operator++(int); //post
 	Fixed&  operator--();
 	Fixed  operator--(int);
+
+	/* min/max */
+	static Fixed& min(Fixed& x, Fixed& y);
+	static Fixed& min(Fixed const& x, Fixed const& y);
+	static Fixed& max(Fixed& x, Fixed& y);
+	static Fixed& max(Fixed const& x, Fixed const& y);
 
 	int	getRawBits() const;
 	void setRawBits(int const raw);
