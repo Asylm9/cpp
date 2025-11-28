@@ -151,18 +151,17 @@ Fixed& Fixed::min(Fixed& x, Fixed& y)
 	return (x.getRawBits() < y.getRawBits() ? x : y);
 }
 
-static Fixed& min(Fixed const& x, Fixed const& y)
+const Fixed& Fixed::min(Fixed const& x, Fixed const& y)
 {
 	return (x.getRawBits() < y.getRawBits() ? x : y);
-
 }
 
-static Fixed& max(Fixed& x, Fixed& y)
+Fixed& Fixed::max(Fixed& x, Fixed& y)
 {
 	return (x.getRawBits() > y.getRawBits() ? x : y);
 }
 
-static Fixed& max(Fixed const& x, Fixed const& y)
+const Fixed& Fixed::max(Fixed const& x, Fixed const& y)
 {
 	return (x.getRawBits() > y.getRawBits() ? x : y);
 }

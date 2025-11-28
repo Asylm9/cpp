@@ -2,7 +2,7 @@
 
 int	main(void)
 {
-	Fixed a(231); Fixed b(29);
+	Fixed a(-1); Fixed b(29);
 
 	//Fixed c = a + b;
 	//Fixed c = a - b;
@@ -29,11 +29,13 @@ int	main(void)
 	std::cout << "result int:  " << a.toInt() << std::endl;
 	std::cout << "result float:  " << a.toFloat() << std::endl; */
 
+	Fixed c(-5);
+	Fixed d(35);
 	std::cout << "\nMin / Max:" << std::endl;
 	std::cout << "min(a, b): " << Fixed::min(a,b).toInt() << std::endl;
-	std::cout << "min(a, b): " << Fixed::min(a,b).toInt() << std::endl;
+	std::cout << "const min(c, d): " << Fixed::min(c,d).toInt() << std::endl;
 	std::cout << "max(a, b): " << Fixed::max(a,b).toInt() << std::endl;
-	std::cout << "max(a, b): " << Fixed::max(a,b).toInt() << std::endl;
+	std::cout << "const max(c, d): " << Fixed::max(c,d).toInt() << std::endl;
 
 
 /* 	Fixed a;

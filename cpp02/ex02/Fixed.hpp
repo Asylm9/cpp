@@ -45,9 +45,9 @@ class Fixed
 
 	/* min/max */
 	static Fixed& min(Fixed& x, Fixed& y);
-	static Fixed& min(Fixed const& x, Fixed const& y);
+	static const Fixed& min(Fixed const& x, Fixed const& y);
 	static Fixed& max(Fixed& x, Fixed& y);
-	static Fixed& max(Fixed const& x, Fixed const& y);
+	static const Fixed& max(Fixed const& x, Fixed const& y);
 
 	int	getRawBits() const;
 	void setRawBits(int const raw);
