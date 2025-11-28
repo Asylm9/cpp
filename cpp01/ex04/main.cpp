@@ -6,7 +6,7 @@
 /*   By: agaland <agaland@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:14:19 by agaland           #+#    #+#             */
-/*   Updated: 2025/11/10 01:24:55 by agaland          ###   ########.fr       */
+/*   Updated: 2025/11/28 13:42:36 by agaland          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ bool	replaceFind(std::ifstream& file, std::string const& search, std::string con
 				buff.insert(foundPos, replace);
 				foundPos += replace.length();
 		}
-		outFile << buff << "\n";
+
+		if (!file.eof())
+			outFile << buff << "\n";
 	}
 			
 	if (!found)
