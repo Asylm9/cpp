@@ -14,9 +14,10 @@ class Fixed
 	public :
 
 	Fixed();
+	Fixed(Fixed const& object);
+
 	Fixed(const int n);
 	Fixed(const float f);
-	Fixed(Fixed const& object);
 
 	~Fixed();
 
