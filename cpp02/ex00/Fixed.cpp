@@ -7,9 +7,9 @@ Fixed::Fixed() : _fixedPointValue(0)
 
 Fixed::Fixed(Fixed const& object) : _fixedPointValue(object.getRawBits())
 {
+	std::cout << "Copy constructor called" << std::endl;
 	/* good practice, si bien compris :v : utiliser liste d'initioalisation et non operateur d'assignation lorsque object est en train d'etre cree */
 	//*this = object;
-	std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed&  Fixed::operator=(Fixed const& rhs)
