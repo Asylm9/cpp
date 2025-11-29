@@ -60,22 +60,22 @@ Fixed::~Fixed()
 /* arithmetic operators */
 Fixed  Fixed::operator+(Fixed const& rhs) const
 {
-	Fixed fixed;
-	fixed.setRawBits(this->_fixedPointValue + rhs._fixedPointValue);
-	return (fixed);
+	Fixed result;
+	result._fixedPointValue = this->_fixedPointValue + rhs._fixedPointValue;
+	return (result);
 }
 
 Fixed  Fixed::operator-(Fixed const& rhs) const
 {
 	Fixed result;
-	result.setRawBits(this->_fixedPointValue - rhs._fixedPointValue);
+	result._fixedPointValue = this->_fixedPointValue - rhs._fixedPointValue;
 	return (result);
 }
 
 Fixed  Fixed::operator*(Fixed const& rhs) const
 {
 	Fixed result;
-	result.setRawBits(this->_fixedPointValue * (rhs._fixedPointValue) >> _fractBits);
+	result._fixedPointValue = (this->_fixedPointValue * rhs._fixedPointValue) >> _fractBits;
 	return (result);
 }
 
@@ -83,11 +83,11 @@ Fixed  Fixed::operator/(Fixed const& rhs) const
 {
 	Fixed result;
 	if (rhs._fixedPointValue != 0)
-		result.setRawBits((this->_fixedPointValue << _fractBits) / rhs._fixedPointValue);
+		result._fixedPointValue = (this->_fixedPointValue << _fractBits) / rhs._fixedPointValue;
 	else
 	{
 		std::cerr << "Error: Division by 0" << std::endl;
-		result.setRawBits(-1);
+		exit(1);
 	}
 	return (result);
 }
@@ -97,22 +97,27 @@ bool  Fixed::operator>(Fixed const& rhs) const
 {
 	return (this->_fixedPointValue > rhs._fixedPointValue);
 }
+
 bool  Fixed::operator<(Fixed const& rhs) const
 {
 	return (this->_fixedPointValue < rhs._fixedPointValue);
 }
+
 bool  Fixed::operator==(Fixed const& rhs) const
 {
 	return (this->_fixedPointValue == rhs._fixedPointValue);
 }
+
 bool  Fixed::operator!=(Fixed const& rhs) const
 {
 	return (this->_fixedPointValue != rhs._fixedPointValue);
 }
+
 bool  Fixed::operator>=(Fixed const& rhs) const
 {
 	return (this->_fixedPointValue >= rhs._fixedPointValue);
 }
+
 bool  Fixed::operator<=(Fixed const& rhs) const
 {
 	return (this->_fixedPointValue <= rhs._fixedPointValue);
@@ -148,22 +153,22 @@ Fixed  Fixed::operator--(int)
 /* Min/Max */
 Fixed& Fixed::min(Fixed& x, Fixed& y)
 {
-	return (x.getRawBits() < y.getRawBits() ? x : y);
+	return (x._fixedPointValue < y._fixedPointValue ? x : y);
 }
 
 const Fixed& Fixed::min(Fixed const& x, Fixed const& y)
 {
-	return (x.getRawBits() < y.getRawBits() ? x : y);
+	return (x._fixedPointValue < y._fixedPointValue ? x : y);
 }
 
 Fixed& Fixed::max(Fixed& x, Fixed& y)
 {
-	return (x.getRawBits() > y.getRawBits() ? x : y);
+	return (x._fixedPointValue > y._fixedPointValue ? x : y);
 }
 
 const Fixed& Fixed::max(Fixed const& x, Fixed const& y)
 {
-	return (x.getRawBits() > y.getRawBits() ? x : y);
+	return (x._fixedPointValue > y._fixedPointValue ? x : y);
 }
 
 /* Non-member function */

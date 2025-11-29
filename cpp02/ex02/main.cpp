@@ -2,16 +2,15 @@
 
 int	main(void)
 {
-	Fixed a(-1); Fixed b(29);
-
+	Fixed a(2); Fixed b(2);
 	//Fixed c = a + b;
 	//Fixed c = a - b;
-	//Fixed c = a * b;
+	Fixed c = a * b;
 	//Fixed c = a / b;
 
-	std::cout << "Arithmetic operators" << std::endl;
-/* 	std::cout << "c value = " << c.toInt() << std::endl;
-	std::cout << "c value = " << c.toFloat() << std::endl; */
+	std::cout << "\nArithmetic operators" << std::endl;
+	std::cout << "c value = " << c.toInt() << std::endl;
+	std::cout << "c value = " << c.toFloat() << std::endl;
 
 
 	std::cout << "\nComparision operators" << std::endl;
@@ -29,14 +28,13 @@ int	main(void)
 	std::cout << "result int:  " << a.toInt() << std::endl;
 	std::cout << "result float:  " << a.toFloat() << std::endl; */
 
-	Fixed c(-5);
-	Fixed d(35);
+	Fixed d(-5);
+	Fixed e(35);
 	std::cout << "\nMin / Max:" << std::endl;
 	std::cout << "min(a, b): " << Fixed::min(a,b).toInt() << std::endl;
-	std::cout << "const min(c, d): " << Fixed::min(c,d).toInt() << std::endl;
+	std::cout << "const min(d, e): " << Fixed::min(c,d).toInt() << std::endl;
 	std::cout << "max(a, b): " << Fixed::max(a,b).toInt() << std::endl;
-	std::cout << "const max(c, d): " << Fixed::max(c,d).toInt() << std::endl;
-
+	std::cout << "const max(d, e): " << Fixed::max(c,d).toInt() << std::endl;
 
 /* 	Fixed a;
 	Fixed const b(10);
