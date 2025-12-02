@@ -1,4 +1,4 @@
- #ifndef DIAMONTRAP_HPP
+ #ifndef DIAMONDTRAP_HPP
 #define DIAMONDTRAP_HPP
 
 #include "FragTrap.hpp"
@@ -22,8 +22,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 
 	DiamondTrap&  operator=(DiamondTrap const& rhs);
 
-	void attack(const std::string& target);
-	void guardGate();
+	void whoAmI();
 
 };
 

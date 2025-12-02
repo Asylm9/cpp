@@ -1,25 +1,25 @@
 #include "DiamondTrap.hpp"
 
-
-DiamondTrap::DiamondTrap() : ClapTrap()
+DiamondTrap::DiamondTrap() : ClapTrap(), _name("default_name")
 {
 	std::cout << "Default DiamondTrap constructor called" << std::endl;
-
-	_hitPoints(FragTrap);
-;	_energyPoints = 50;
-	_attackDamage = 20;
+	
+	_hitPoints = FragTrap::_hitPoints;
+	_energyPoints = ScavTrap::_energyPoints;
+	_attackDamage = FragTrap::_attackDamage;
 }
 
-DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name)
+DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name")
 {
 	std::cout << "DiamondTrap constructor called" << std::endl;
 
-	_hitPoints = 100;
-	_energyPoints = 50;
-	_attackDamage = 20;
+	_name = name;
+	_hitPoints = FragTrap::_hitPoints;
+	_energyPoints = ScavTrap::_energyPoints;
+	_attackDamage = FragTrap::_attackDamage;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const& object) : ClapTrap(object)
+DiamondTrap::DiamondTrap(DiamondTrap const& object) : ScavTrap(object), FragTrap(object)
 {
 	std::cout << "DiamondTrap copy constructor called" << std::endl;
 }
@@ -42,24 +42,8 @@ DiamondTrap&  DiamondTrap::operator=(DiamondTrap const& rhs)
 	return (*this); 
 }
 
-void DiamondTrap::attack(const std::string& target)
+void DiamondTrap::whoAmI()
 {
-	if (!_hitPoints || !_energyPoints)
-	{
-		if (!_hitPoints)
-			std::cout << "{DiamondTrap "<< _name << " has left this world}" << std::endl;
-		else
-			std::cout << "{DiamondTrap "<< _name << " has not enough energy to attack}" << std::endl;
-		return ;
-	}
-	_energyPoints--;
-	std::cout << "{DiamondTrap " << _name << " attacks " << target << " causing him " << _attackDamage << " points of damage}" << std::endl;
+	std::cout << "{Diamond name: " << _name << " | ClapTrap name: " << ClapTrap::_name << "}" << std::endl;
 }
-
-void DiamondTrap::guardGate()
-{
-	std::cout << "{DiamondTrap "<< _name << " is in Gate keeper mode}" << std::endl;
-
-}
-
 

@@ -18,7 +18,7 @@ class ClapTrap
 	ClapTrap(const std::string& name);
 	ClapTrap(ClapTrap const& object);
 
-	~ClapTrap();
+	 ~ClapTrap();
 
 	ClapTrap&  operator=(ClapTrap const& rhs);
 
@@ -28,8 +28,6 @@ class ClapTrap
 	void beRepaired(unsigned int amount);
 
 	void displayStat();
-
-
 };
 
 #endif
