@@ -58,8 +58,7 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate()
 {
-	if (_hitPoints > 0)
-		std::cout << "{ScavTrap "<< _name << " is in Gate keeper mode}" << std::endl;
+	std::cout << "{ScavTrap "<< _name << " is in Gate keeper mode}" << std::endl;
 
 }
 
