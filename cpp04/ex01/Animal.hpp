@@ -22,5 +22,4 @@ class Animal
 		virtual void makeSound();
 };
 
-
 #endif

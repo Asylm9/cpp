@@ -7,7 +7,34 @@ int	main()
 
 	std::cout << "\n*****TESTS*****" << std::endl;
 
-	Animal* animal = new Animal();
+	Cat first;
+	Cat second(first);
+
+/* 	int	size = 10;
+	Animal *horde[size];
+
+	for (int i = 0; i < size; i++)
+	{
+		if (i % 2 == 0)
+		{
+			horde[i] = new Cat();
+			//horde[i]
+		}
+		else
+			horde[i] = new Dog();
+	}
+
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << horde[i]->getType() << std::endl;
+		horde[i]->makeSound();
+	}
+
+	for (int i = 0; i < size; i++)
+		delete horde[i]; */
+
+
+/* 	Animal* animal = new Animal();
 	Animal* cat = new Cat();
 	Animal* dog = new Dog();
 
@@ -24,7 +51,7 @@ int	main()
 	delete dog;
 	std::cout << "/////////////" << std::endl;
 	delete animal;
-	std::cout << "/////////////" << std::endl;
+	std::cout << "/////////////" << std::endl; */
 
 	return 0;
 }

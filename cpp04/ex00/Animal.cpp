@@ -31,6 +31,6 @@
 
 	void Animal::makeSound()
 	{
-		std::cout << "The " << type << " makes some random noise" << std::endl;
+		std::cout << "The " << type << " makes some random noises" << std::endl;
 	}
 	

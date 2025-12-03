@@ -1,15 +1,15 @@
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
-	protected:
+	private:
 
 	std::string	type;
-
+	Brain *brain;
 	public:
 
 		Cat();
@@ -20,8 +20,9 @@ class Cat : public Animal
 		Cat& operator=(const Cat& rhs);
 
 		const std::string& getType() const;
+		const Brain* getBrain() const;
+
 		void makeSound();
 };
-
 
 #endif
