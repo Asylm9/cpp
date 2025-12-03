@@ -2,13 +2,13 @@
 
 int	main()
 {
-	DiamondTrap derived("diamond");
-	//DiamondTrap derived;
+	//DiamondTrap derived("Georges");
+	DiamondTrap derived;
 
 	derived.highFivesGuys();
 	derived.guardGate();
 
-	derived.attack("TEST");
+	derived.attack("Bjorn");
 
 	derived.whoAmI();
 

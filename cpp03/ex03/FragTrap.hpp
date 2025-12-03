@@ -12,7 +12,7 @@ class FragTrap : virtual public ClapTrap
 	FragTrap(const std::string& name);
 	FragTrap(FragTrap const& object);
 
-	virtual ~FragTrap();
+	~FragTrap();
 
 	FragTrap&  operator=(FragTrap const& rhs);
 

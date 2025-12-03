@@ -1,6 +1,6 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap(), _name("default_name")
+DiamondTrap::DiamondTrap() : ClapTrap("default_clap_name"), _name("default_diamond")
 {
 	std::cout << "Default DiamondTrap constructor called" << std::endl;
 	
@@ -19,9 +19,10 @@ DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"
 	_attackDamage = FragTrap::_attackDamage;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const& object) : ScavTrap(object), FragTrap(object)
+DiamondTrap::DiamondTrap(DiamondTrap const& object) : ClapTrap(object), ScavTrap(object), FragTrap(object)
 {
 	std::cout << "DiamondTrap copy constructor called" << std::endl;
+	*this = object;
 }
 
 DiamondTrap::~DiamondTrap()
