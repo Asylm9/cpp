@@ -1,0 +1,29 @@
+#ifndef CAT_HPP
+#define CAT_HPP
+
+#include "Animal.hpp"
+#include "Brain.hpp"
+
+class Cat : public Animal
+{
+	private:
+
+	Brain *brain;
+
+	public:
+
+		Cat();
+		Cat(const Cat& other);
+
+		~Cat();
+
+		Cat& operator=(const Cat& rhs);
+
+		const std::string& 	getType() const;
+		const Brain*		getBrain() const;
+		Brain*				setBrain();
+
+		void makeSound();
+};
+
+#endif
