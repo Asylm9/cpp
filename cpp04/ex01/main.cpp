@@ -13,7 +13,7 @@ int	main()
 /* 	int	size = 10;
 	Animal *horde[size];
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < 10-; i++)
 	{
 		if (i % 2 == 0)
 		{
@@ -24,7 +24,7 @@ int	main()
 			horde[i] = new Dog();
 	}
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		std::cout << horde[i]->getType() << std::endl;
 		horde[i]->makeSound();

@@ -8,7 +8,6 @@ class Dog : public Animal
 {
 	private:
 
-	std::string	type;
 	Brain *brain;
 
 	public:
@@ -20,8 +19,10 @@ class Dog : public Animal
 
 		Dog& operator=(const Dog& rhs);
 
-		const std::string& getType() const;
-		void makeSound();
+		const std::string&	getType() const;
+		const Brain*		getBrain() const;
+
+		void	makeSound();
 };
 
 

@@ -8,8 +8,8 @@ class Cat : public Animal
 {
 	private:
 
-	std::string	type;
 	Brain *brain;
+
 	public:
 
 		Cat();
@@ -19,8 +19,8 @@ class Cat : public Animal
 
 		Cat& operator=(const Cat& rhs);
 
-		const std::string& getType() const;
-		const Brain* getBrain() const;
+		const std::string& 	getType() const;
+		const Brain*		getBrain() const;
 
 		void makeSound();
 };
