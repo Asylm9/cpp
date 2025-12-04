@@ -6,10 +6,6 @@
 
 class WrongCat : public WrongAnimal
 {
-	protected:
-
-	std::string	type;
-
 	public:
 
 		WrongCat();

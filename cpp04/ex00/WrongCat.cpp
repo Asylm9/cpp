@@ -1,14 +1,14 @@
 #include "WrongCat.hpp"
 
-	WrongCat::WrongCat() : WrongAnimal(), type("WrongCat")
+	WrongCat::WrongCat() : WrongAnimal()
 	{
+		type = "Wrong Cat";
 		std::cout << "[WrongCat] Default constructor called" << std::endl;
 	}
 
 	WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other)
 	{
 		std::cout << "[WrongCat] Copy constructor called" << std::endl;
-		*this = other;
 	}
 
 	WrongCat::~WrongCat()
