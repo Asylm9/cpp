@@ -9,21 +9,30 @@ int	main()
 
 	std::cout << "\n*****TESTS COPY*****" << std::endl;
 	Cat first;
-	const std::string idea = "BRAIN ROT" ;
+	const std::string idea = "BRAIN ROT";
+	const std::string bidea = "NEW BRAIN" ;
 	first.setBrain()->setIdeas(0, idea);
 	Cat second(first);
 	Cat third = second;
 
 	std::cout << "\n*****memory test array*****" << std::endl;
+	std::cout << "*first*" << std::endl;
 	const Brain* brain1 = first.getBrain();
+	std::cout << &brain1 << std::endl;
 	std::cout << brain1->getIdeas(0) << std::endl;
 	std::cout << &brain1->getIdeas(0) << std::endl;
+	first.setBrain()->setIdeas(0, bidea);
+	std::cout << brain1->getIdeas(0) << std::endl;
 
+	std::cout << "\n*second*" << std::endl;
 	const Brain* brain2 = second.getBrain();
+	std::cout << &brain2 << std::endl;
 	std::cout << brain2->getIdeas(0) << std::endl;
 	std::cout << &brain2->getIdeas(0) << std::endl;
 
+	std::cout << "\n*third*" << std::endl;
 	const Brain* brain3 = third.getBrain();
+	std::cout << &brain3 << std::endl;
 	std::cout << brain3->getIdeas(0) << std::endl;
 	std::cout << &brain3->getIdeas(0) << std::endl;
 	
