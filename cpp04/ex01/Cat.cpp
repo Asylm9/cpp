@@ -39,6 +39,11 @@ const Brain* Cat::getBrain() const
 	return (brain);
 }
 
+Brain* Cat::setBrain()
+{
+	return (brain);
+}
+
 void Cat::makeSound()
 {
 	std::cout << "The " << type << " meows" << std::endl;

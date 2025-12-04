@@ -31,3 +31,10 @@ const std::string& Brain::getIdeas(int i) const
 {
 	return (ideas[i]);
 }
+
+void Brain::setIdeas(int i, const std::string& value)
+{
+	ideas[i] = value;
+	std::cout << value << std::endl;
+	std::cout << ideas[i] << std::endl;
+}

@@ -39,6 +39,10 @@ const Brain* Dog::getBrain() const
 	return (brain);
 }
 
+Brain* Dog::setBrain()
+{
+	return (brain);
+}
 
 void Dog::makeSound()
 {
