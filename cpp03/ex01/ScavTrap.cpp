@@ -3,7 +3,7 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-	std::cout << "Default ScavTrap constructor called" << std::endl;
+	std::cout << "ScavTrap default constructor called" << std::endl;
 
 	_hitPoints = 100;
 	_energyPoints = 50;
@@ -12,7 +12,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap constructor called" << std::endl;
+	std::cout << "ScavTrap param constructor called" << std::endl;
 
 	_hitPoints = 100;
 	_energyPoints = 50;
@@ -26,7 +26,7 @@ ScavTrap::ScavTrap(ScavTrap const& object) : ClapTrap(object)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap Destructor called" << std::endl;
+	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
 ScavTrap&  ScavTrap::operator=(ScavTrap const& rhs)
@@ -49,17 +49,21 @@ void ScavTrap::attack(const std::string& target)
 		if (!_hitPoints)
 			std::cout << "{ScavTrap "<< _name << " has left this world}" << std::endl;
 		else
-			std::cout << "{ScavTrap "<< _name << " has not enough energy to attack}" << std::endl;
+			std::cout << "{ScavTrap "<< _name << " has not enough energy left to attack}" << std::endl;
 		return ;
 	}
 	_energyPoints--;
-	std::cout << "{ScavTrap " << _name << " attacks " << target << " causing him " << _attackDamage << " points of damage}" << std::endl;
+	std::cout << "{ScavTrap " << _name << " attacks " << target << " inflicting him " << _attackDamage << " points of damage}" << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
-	if (_hitPoints > 0)
-		std::cout << "{ScavTrap "<< _name << " is in Gate keeper mode}" << std::endl;
+	if (!_hitPoints)
+	{
+		std::cout << "{ScavTrap "<< _name << " cannot guard the gate, he's dead}" << std::endl;
+		return;
+	}
+		std::cout << "{ScavTrap "<< _name << " is now in gate keeper mode!}" << std::endl;
 
 }
 

@@ -49,16 +49,21 @@ void ScavTrap::attack(const std::string& target)
 		if (!_hitPoints)
 			std::cout << "{ScavTrap "<< _name << " has left this world}" << std::endl;
 		else
-			std::cout << "{ScavTrap "<< _name << " has not enough energy to attack}" << std::endl;
+			std::cout << "{ScavTrap "<< _name << " has not enough energy left to attack}" << std::endl;
 		return ;
 	}
 	_energyPoints--;
-	std::cout << "{ScavTrap " << _name << " attacks " << target << " causing him " << _attackDamage << " points of damage}" << std::endl;
+	std::cout << "{ScavTrap " << _name << " attacks " << target << " inflicting him " << _attackDamage << " points of damage}" << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
-	std::cout << "{ScavTrap "<< _name << " is in Gate keeper mode}" << std::endl;
+	if (!_hitPoints)
+	{
+		std::cout << "{ScavTrap "<< _name << " cannot guard the gate, he's dead}" << std::endl;
+		return;
+	}
+		std::cout << "{ScavTrap "<< _name << " is now in gate keeper mode!}" << std::endl;
 
 }
 

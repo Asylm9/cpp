@@ -2,29 +2,29 @@
 
 ClapTrap::ClapTrap() : _name("default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Default ClapTrap constructor called" << std::endl;
+	std::cout << "ClapTrap defaultconstructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "ClapTrap constructor called" << std::endl;
+	std::cout << "ClapTrap param constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const& object)
 {
-	std::cout << "Copy ClapTrap constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = object;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap Destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 
 }
 
 ClapTrap&  ClapTrap::operator=(ClapTrap const& rhs)
 {
-	std::cout << "Copy ClapTrap assignment operator called" << std::endl;
+	std::cout << "ClapTrap copy assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
 		_name = rhs._name;
@@ -42,11 +42,11 @@ void ClapTrap::attack(const std::string& target)
 		if (!_hitPoints)
 			std::cout << "{ClapTrap "<< _name << " has left this world}" << std::endl;
 		else
-			std::cout << "{ClapTrap "<< _name << " has not enough energy to attack}" << std::endl;
+			std::cout << "{ClapTrap "<< _name << " has not enough energy left to attack}" << std::endl;
 		return ;
 	}
 	_energyPoints--;
-	std::cout << "{ClapTrap " << _name << " attacks " << target << " causing him " << _attackDamage << " points of damage}" << std::endl;
+	std::cout << "{ClapTrap " << _name << " attacks " << target << " inflicting him " << _attackDamage << " points of damage}" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)

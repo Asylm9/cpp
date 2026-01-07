@@ -2,7 +2,7 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-	std::cout << "Default FragTrap constructor called" << std::endl;
+	std::cout << "FragTrap default constructor called" << std::endl;
 
 	_hitPoints = 100;
 	_energyPoints = 100;
@@ -11,7 +11,7 @@ FragTrap::FragTrap() : ClapTrap()
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
-	std::cout << "FragTrap constructor called" << std::endl;
+	std::cout << "FragTrap param constructor called" << std::endl;
 
 	_hitPoints = 100;
 	_energyPoints = 100;
@@ -25,7 +25,7 @@ FragTrap::FragTrap(FragTrap const& object) : ClapTrap(object)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap Destructor called" << std::endl;
+	std::cout << "FragTrap destructor called" << std::endl;
 }
 
 FragTrap&  FragTrap::operator=(FragTrap const& rhs)

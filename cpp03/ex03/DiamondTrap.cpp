@@ -2,7 +2,7 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap("default_clap_name"), _name("default_diamond")
 {
-	std::cout << "Default DiamondTrap constructor called" << std::endl;
+	std::cout << "DiamondTrap default constructor called" << std::endl;
 	
 	_hitPoints = FragTrap::_hitPoints;
 	_energyPoints = ScavTrap::_energyPoints;
@@ -11,7 +11,7 @@ DiamondTrap::DiamondTrap() : ClapTrap("default_clap_name"), _name("default_diamo
 
 DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name")
 {
-	std::cout << "DiamondTrap constructor called" << std::endl;
+	std::cout << "DiamondTrap param constructor called" << std::endl;
 
 	_name = name;
 	_hitPoints = FragTrap::_hitPoints;
@@ -27,7 +27,7 @@ DiamondTrap::DiamondTrap(DiamondTrap const& object) : ClapTrap(object), ScavTrap
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "DiamondTrap Destructor called" << std::endl;
+	std::cout << "DiamondTrap destructor called" << std::endl;
 }
 
 DiamondTrap&  DiamondTrap::operator=(DiamondTrap const& rhs)
