@@ -1,44 +1,38 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-
-int	main()
+int main()
 {
-	ScavTrap scavTrap("Georges");
-	ScavTrap b = scavTrap;
-
-	scavTrap.attack("Gerard");
-	b.attack("Junior");
-	scavTrap.guardGate();
-
-	return 0;
-}
-/* int main()
-{
-    std::cout << "=== Test 1: Creation ===" << std::endl;
     ScavTrap scav("Georges");
-    
-    std::cout << "\n=== Test 2: Attack ===" << std::endl;
+
+    std::cout << "\n====== Stats" << std::endl;
+	scav.displayStat();
+
+    std::cout << "\n====== Attack" << std::endl;
     scav.attack("Gerard");
     
-    std::cout << "\n=== Test 3: Take Damage ===" << std::endl;
-    scav.takeDamage(30);  // Test de l'héritage
+    std::cout << "\n====== Take Damage" << std::endl;
+    scav.takeDamage(300); 
     
-    std::cout << "\n=== Test 4: Repair ===" << std::endl;
-    scav.beRepaired(20);  // Test de l'héritage
+    std::cout << "\n====== Be Repaired" << std::endl;
+    scav.beRepaired(20);
     
-    std::cout << "\n=== Test 5: Guard Gate ===" << std::endl;
+    std::cout << "\n====== Guard Mode" << std::endl;
     scav.guardGate();
     
-    std::cout << "\n=== Test 6: Copy ===" << std::endl;
-    ScavTrap b = scav;
-    b.attack("Junior");
+    std::cout << "\n====== Copy" << std::endl;
+    ScavTrap copy = scav;
+    copy.attack("Maurice");
     
-    std::cout << "\n=== Test 7: Die and try actions ===" << std::endl;
-    scav.takeDamage(200);
-    scav.guardGate();  // Devrait afficher un message ou rien
+    std::cout << "\n====== DEAD" << std::endl;
+    scav.takeDamage(70);
+    scav.guardGate();
     scav.attack("Someone");
     
-    std::cout << "\n=== Destruction ===" << std::endl;
+/*     std::cout << "\n====== Stats" << std::endl;
+	scav.displayStat();
+	copy.displayStat(); */
+
+    std::cout << "\n======" << std::endl;
     return 0;
-} */
+}

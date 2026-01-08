@@ -1,21 +1,22 @@
-#ifndef FRAGTRAP_HPP
+ #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 
-#include <iostream>
 #include "ClapTrap.hpp"
+#include <iostream>
 
 class FragTrap : public ClapTrap
 {
 	public:
-
+	
 	FragTrap();
 	FragTrap(const std::string& name);
-	FragTrap(const FragTrap& object);
+	FragTrap(FragTrap const& object);
+
 	~FragTrap();
 
-	FragTrap& operator=(const FragTrap& rhs);
+	FragTrap&  operator=(FragTrap const& rhs);
 
-	void	highFivesGuys();
+	void highFivesGuys(void);
 
 };
 

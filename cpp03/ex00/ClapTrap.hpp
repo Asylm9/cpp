@@ -1,4 +1,4 @@
-#ifndef  CLAPTRAP_HPP
+#ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
 #include <iostream>
@@ -13,23 +13,19 @@ class ClapTrap
 	unsigned int	_attackDamage;
 
 	public:
-	
-	ClapTrap();
-	ClapTrap(std::string name);
-	ClapTrap(ClapTrap const& object);
 
+	ClapTrap();
+	ClapTrap(const std::string& name);
+	ClapTrap(const ClapTrap& object);
 	~ClapTrap();
 
-	ClapTrap&  operator=(ClapTrap const& rhs);
+	ClapTrap& operator=(const ClapTrap& rhs);
 
+	void	attack(const std::string target);
+	void	takeDamage(unsigned int amount);
+	void	beRepaired(unsigned int amount);
 
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-
-	void displayStat();
-
-
+	void 	displayStat();
 };
 
 #endif
