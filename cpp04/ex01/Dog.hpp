@@ -15,11 +15,12 @@ class Dog : public Animal
 
 	Dog& operator=(const Dog& rhs);
 
+	Brain*	getBrain() const;
 	void	makeSound() const;
 
 	private:
 	
-	//Brain* brain;
+	Brain* _brain;
 	
 };
 

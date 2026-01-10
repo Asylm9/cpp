@@ -29,7 +29,7 @@ int main()
 	std::cout << "\n/////////// Test Deep copy" << std::endl;
 
 	Cat cat;
-	Cat copyCat(cat);
+	Cat copyCat;
 
 	std::cout << "\n---------- Adresses" << std::endl;
 	std::cout << "Original: " << cat.getBrain() << std::endl;
@@ -40,8 +40,28 @@ int main()
 	std::cout << "Original: " << cat.getBrain()->getIdeas() << std::endl;
 	copyCat.getBrain()->setIdeas("COPY", 0);
 	std::cout << "Copy: " << copyCat.getBrain()->getIdeas() << std::endl;
+
+	copyCat = cat;
+	std::cout << "Copy: " << copyCat.getBrain()->getIdeas() << std::endl;
 	std::cout << "Original: " << cat.getBrain()->getIdeas() << std::endl;
 	std::cout <<  "\n";
+
+/* 	Dog dog;
+	Dog copyDog;
+
+	std::cout << "\n---------- Adresses" << std::endl;
+	std::cout << "Original: " << dog.getBrain() << std::endl;
+	std::cout << "Copy: " << copyDog.getBrain() << std::endl;
+
+	std::cout << "\n---------- setIdeas" << std::endl;
+	dog.getBrain()->setIdeas("ORIGINAL", 0);
+	std::cout << "Original: " << dog.getBrain()->getIdeas() << std::endl;
+	copyDog.getBrain()->setIdeas("COPY", 0);
+	std::cout << "Copy: " << copyDog.getBrain()->getIdeas() << std::endl;
+
+	copyDog = dog;
+	std::cout << "Copy: " << copyDog.getBrain()->getIdeas() << std::endl;
+	std::cout << "Original: " << dog.getBrain()->getIdeas() << std::endl; */
 
 	return 0;
 }
