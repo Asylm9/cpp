@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: agaland <agaland@student.42belgium.be>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/09 23:52:03 by agaland           #+#    #+#             */
-/*   Updated: 2026/01/10 02:11:27 by agaland          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Cat.hpp"
 
 Cat::Cat() : Animal()
@@ -26,7 +14,7 @@ Cat::Cat(const Cat& other) : Animal(other)
 
 Cat::~Cat()
 {
-	std::cout << "[Cat] destructor constructor called" << std::endl;
+	std::cout << "[Cat] destructor called" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& rhs)

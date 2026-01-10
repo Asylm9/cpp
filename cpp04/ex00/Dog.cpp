@@ -14,7 +14,7 @@ Dog::Dog(const Dog& other) : Animal(other)
 
 Dog::~Dog()
 {
-	std::cout << "[Dog] destructor constructor called" << std::endl;
+	std::cout << "[Dog] destructor called" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& rhs)

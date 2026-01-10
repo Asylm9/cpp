@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: agaland <agaland@student.42belgium.be>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/09 23:52:03 by agaland           #+#    #+#             */
-/*   Updated: 2026/01/10 02:06:43 by agaland          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Animal.hpp"
 
 Animal::Animal() : type("Animal")
@@ -26,7 +14,7 @@ Animal::Animal(const Animal& other)
 
 Animal::~Animal()
 {
-	std::cout << "[Animal] destructor constructor called" << std::endl;
+	std::cout << "[Animal] destructor called" << std::endl;
 	
 }
 
