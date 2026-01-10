@@ -31,16 +31,13 @@ int main()
 	Cat cat;
 	Cat copyCat;
 
-	std::cout << "\n---------- Adresses" << std::endl;
-	std::cout << "Original: " << cat.getBrain() << std::endl;
-	std::cout << "Copy: " << copyCat.getBrain() << std::endl;
-
 	std::cout << "\n---------- setIdeas" << std::endl;
 	cat.getBrain()->setIdeas("ORIGINAL", 0);
 	std::cout << "Original: " << cat.getBrain()->getIdeas() << std::endl;
 	copyCat.getBrain()->setIdeas("COPY", 0);
 	std::cout << "Copy: " << copyCat.getBrain()->getIdeas() << std::endl;
 
+	std::cout << "\n---------- Copy" << std::endl;
 	copyCat = cat;
 	std::cout << "Copy: " << copyCat.getBrain()->getIdeas() << std::endl;
 	std::cout << "Original: " << cat.getBrain()->getIdeas() << std::endl;
