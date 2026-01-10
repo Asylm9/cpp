@@ -26,21 +26,48 @@ int main()
 		delete horde[i];
 	}
 
-	std::cout << "\n/////////// Test Deep copy" << std::endl;
+	std::cout << "\n/////////// Deep copy - copy constructor" << std::endl;
 
 	Cat cat;
 	Cat copyCat;
 
-	std::cout << "\n---------- setIdeas" << std::endl;
-	cat.getBrain()->setIdeas("ORIGINAL", 0);
+	std::cout << "\n---------- Adresses" << std::endl;
+	std::cout << "Copy: " << copyCat.getBrain() << std::endl;
+	std::cout << "Original: " << cat.getBrain() << std::endl;
+	std::cout << "----------" << std::endl;
+
+
+	cat.getBrain()->setIdeas("ORIGINAL1", 0);
 	std::cout << "Original: " << cat.getBrain()->getIdeas() << std::endl;
-	copyCat.getBrain()->setIdeas("COPY", 0);
+	copyCat.getBrain()->setIdeas("ORIGINAL2", 0);
 	std::cout << "Copy: " << copyCat.getBrain()->getIdeas() << std::endl;
 
 	std::cout << "\n---------- Copy" << std::endl;
 	copyCat = cat;
 	std::cout << "Copy: " << copyCat.getBrain()->getIdeas() << std::endl;
 	std::cout << "Original: " << cat.getBrain()->getIdeas() << std::endl;
+	std::cout <<  "\n";
+
+	std::cout << "\n/////////// Deep copy - assignment opetator" << std::endl;
+
+	Cat cat2;
+	cat2.getBrain()->setIdeas("ORIGINAL", 0);
+
+	Cat copyCat2(cat2);
+
+	std::cout << "\n---------- start" << std::endl;
+	std::cout << "Copy: " << copyCat2.getBrain()->getIdeas() << std::endl;
+	std::cout << "Original: " << cat2.getBrain()->getIdeas() << std::endl;
+
+	std::cout << "\n---------- Adresses" << std::endl;
+	std::cout << "Copy: " << copyCat2.getBrain() << std::endl;
+	std::cout << "Original: " << cat2.getBrain() << std::endl;
+	std::cout << "----------" << std::endl;
+
+	std::cout << "\n---------- Copy modified" << std::endl;
+	copyCat2.getBrain()->setIdeas("MODIFIED", 0);
+	std::cout << "Copy: " << copyCat2.getBrain()->getIdeas() << std::endl;
+	std::cout << "Original: " << cat2.getBrain()->getIdeas() << std::endl;
 	std::cout <<  "\n";
 
 /* 	Dog dog;
