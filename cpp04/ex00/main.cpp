@@ -4,45 +4,33 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-
-int	main()
+int main()
 {
+	const Animal* meta = new Animal();
+	const Animal* d = new Dog();
+	const Animal* c = new Cat();
 
-	std::cout << "\n*****TESTS*****" << std::endl;
+	std::cout << d->getType() << " " << std::endl;
+	std::cout << c->getType() << " " << std::endl;
+	d->makeSound();
+	c->makeSound();
+	meta->makeSound();
 
-	//Const Animal ??
-	Animal* animal = new Animal();
-	Animal* cat = new Cat();
-	Animal* dog = new Dog();
+	delete c;
+	delete d;
+	delete meta;
 
-	std::cout << cat->getType() << std::endl;
-	std::cout << dog->getType() << std::endl;
+	std::cout << "\n///////// WRONG" << std::endl;
 
-	cat->makeSound(); 
-	dog->makeSound();
-	animal->makeSound();
+	const WrongAnimal* wa = new WrongAnimal();
+	const WrongAnimal* wc = new WrongCat();
 
-	std::cout << "\n*****WRONG*****" << std::endl;
+	std::cout << wc->getType() << " " << std::endl;
+	wc->makeSound();
+	wa->makeSound();
 
-	WrongAnimal* wrongAnimal = new WrongAnimal();
-	WrongAnimal* wrongCat = new WrongCat();
-
-	std::cout << wrongCat->getType() << std::endl;
-
-	wrongCat->makeSound(); 
-	wrongAnimal->makeSound();
-
-	std::cout << "\n*****Destructors*****" << std::endl;
-	delete cat;
-	std::cout << "/////////////" << std::endl;
-	delete dog;
-	std::cout << "/////////////" << std::endl;
-	delete animal;
-	std::cout << "/////////////" << std::endl;
-
-	delete wrongCat;
-	std::cout << "/////////////" << std::endl;
-	delete wrongAnimal;
+	delete wc;
+	delete wa;
 
 	return 0;
 }
